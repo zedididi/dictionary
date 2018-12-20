@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="820.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.newQueryControl">
+   <children>
+      <TextField fx:id="getWord" layoutX="66.0" layoutY="27.0" onAction="#enter" />
+      <Button layoutX="342.0" layoutY="27.0" mnemonicParsing="false" onAction="#queryTheWord" text="翻译" />
+      <Button layoutX="676.0" layoutY="27.0" mnemonicParsing="false" onAction="#addWord" text="词汇管理" />
+      <TabPane fx:id="tabPane" layoutX="4.0" layoutY="70.0" prefHeight="727.0" prefWidth="794.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="查询结果">
+               <content>
+                  <AnchorPane prefHeight="420.0" prefWidth="793.0">
+                     <children>
+                        <Text fx:id="sentence" layoutX="80.0" layoutY="350.0" text="sentence" />
+                        <Label layoutX="13.0" layoutY="47.0" text="单词:" />
+                        <Label layoutX="13.0" layoutY="140.0" text="释义:" />
+                        <Label layoutX="13.0" layoutY="334.0" text="例句:" />
+                        <Text fx:id="word" layoutX="80.0" layoutY="62.0" text="word" />
+                         <Text fx:id="meaning" layoutX="81.0" layoutY="156.0" text="meaning" />
+                        <Label layoutX="13.0" layoutY="240.0" text="等级:" />
+                         <Text fx:id="rankL" layoutX="83.0" layoutY="256.0" text="Ranking" />
+                        <Label layoutX="13.0" layoutY="456.0" text="例句释义:" />
+                        <Text fx:id="sentence_meaning" layoutX="92.0" layoutY="472.0" text="sentence_meaning" />
+                     </children>
+                  </AnchorPane>
+               </content>
+          </Tab>
+          <Tab text="所有单词">
+               <content>
+                  <TableView fx:id="tableView" prefHeight="290.0" prefWidth="589.0">
+                     <columns>
+                        <TableColumn prefWidth="162.0" text="单词">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="word" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn minWidth="0.0" prefWidth="535.0" text="释义">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="meaning" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="99.0" text="等级">
+                           <cellValueFactory>
+                              <PropertyValueFactory property="ranking" />
+                           </cellValueFactory>
+                        </TableColumn>
+                     </columns>
+                  </TableView>
+               </content>
+          </Tab>
+            <Tab text="短文阅读">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TabPane fx:id="essayPane" layoutX="2.0" prefHeight="688.0" prefWidth="794.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="   阅读   ">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="readTableVIewEssay" prefHeight="128.0" prefWidth="794.0">
+                                             <columns>
+                                                <TableColumn prefWidth="82.0" text="id">
+                                                   <cellValueFactory>
+                                                      <PropertyValueFactory property="id" />
+                                                   </cellValueFactory>
+                                                </TableColumn>
+                                                <TableColumn prefWidth="710.0" text="title">
+                                                   <cellValueFactory>
+                                                      <PropertyValueFactory property="title" />
+                                                   </cellValueFactory>
+                                                </TableColumn>
+                                             </columns>
+                                          </TableView>
+                                          <TextField fx:id="readQueryF" layoutX="232.0" layoutY="131.0" onAction="#readQueryF" prefHeight="30.0" prefWidth="231.0" />
+                                          <Label layoutX="58.0" layoutY="136.0" text="输入短文ID查询：" />
+                                          <TextArea fx:id="readEnglishA" layoutX="35.0" layoutY="200.0" prefHeight="449.0" prefWidth="328.0" />
+                                          <TextArea fx:id="readChineseA" layoutX="415.0" layoutY="200.0" prefHeight="449.0" prefWidth="328.0" />
+                                          <Label layoutX="43.0" layoutY="161.0" text="英文" />
+                                          <Label layoutX="415.0" layoutY="161.0" text=" 中文" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                            </Tab>
+                            <Tab text="   添加   ">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TextArea fx:id="addEnglishA" layoutX="14.0" layoutY="134.0" prefHeight="449.0" prefWidth="328.0" />
+                                          <TextArea fx:id="addChineseA" layoutX="413.0" layoutY="134.0" prefHeight="449.0" prefWidth="350.0" />
+                                          <Label layoutX="23.0" layoutY="85.0" text="英文" />
+                                          <Label layoutX="413.0" layoutY="85.0" text="中文" />
+                                          <Button layoutX="342.0" layoutY="605.0" mnemonicParsing="false" onAction="#addButton" text="  添加  " />
+                                          <Label layoutX="23.0" layoutY="22.0" text="题目" />
+                                          <TextField fx:id="addTitleF" layoutX="140.0" layoutY="17.0" prefHeight="30.0" prefWidth="620.0" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="   修改   ">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="alterEssay" prefHeight="109.0" prefWidth="794.0">
+                                             <columns>
+                                                <TableColumn prefWidth="75.0" text="id">
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="id" />
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                                 <TableColumn prefWidth="717.0" text="title">
+                                                     <cellValueFactory>
+                                                         <PropertyValueFactory property="title" />
+                                                     </cellValueFactory>
+                                                </TableColumn>
+                                             </columns>
+                                          </TableView>
+                                          <TextField fx:id="alterF" layoutX="219.0" layoutY="113.0" onAction="#alterF" prefHeight="30.0" prefWidth="231.0" />
+                                          <Label layoutX="58.0" layoutY="118.0" text="输入短文ID查询：" />
+                                          <Button layoutX="545.0" layoutY="113.0" mnemonicParsing="false" onAction="#alterButton" text="  修改  " />
+                                          <TextArea fx:id="alterEnglishA" layoutX="35.0" layoutY="226.0" prefHeight="423.0" prefWidth="328.0" />
+                                          <TextArea fx:id="alterChineseA" layoutX="415.0" layoutY="224.0" prefHeight="425.0" prefWidth="328.0" />
+                                          <Label layoutX="43.0" layoutY="192.0" text="英文" />
+                                          <Label layoutX="415.0" layoutY="192.0" text=" 中文" />
+                                          <Label layoutX="43.0" layoutY="161.0" text="题目" />
+                                          <TextField fx:id="alterTitleF" layoutX="161.0" layoutY="156.0" prefHeight="30.0" prefWidth="582.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="   删除   ">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="deleteTableView" prefHeight="129.0" prefWidth="794.0">
+                                             <columns>
+                                                <TableColumn prefWidth="75.0" text="id">
+                                                    <cellValueFactory>
+                                                        <PropertyValueFactory property="id" />
+                                                    </cellValueFactory>
+                                                </TableColumn>
+                                                 <TableColumn prefWidth="717.0" text="title">
+                                                     <cellValueFactory>
+                                                         <PropertyValueFactory property="title" />
+                                                     </cellValueFactory>
+                                                </TableColumn>
+                                             </columns>
+                                          </TableView>
+                                          <TextField fx:id="deleteQueryF" layoutX="219.0" layoutY="131.0" onAction="#deleteQueryF" prefHeight="30.0" prefWidth="231.0" />
+                                          <Label layoutX="73.0" layoutY="136.0" text="输入短文ID查询：" />
+                                          <TextArea fx:id="deleteEnglishA" layoutX="35.0" layoutY="200.0" prefHeight="449.0" prefWidth="328.0" />
+                                           <TextArea fx:id="deleteChineseA" layoutX="415.0" layoutY="200.0" prefHeight="449.0" prefWidth="328.0" />
+                                           <Label layoutX="43.0" layoutY="161.0" text="英文" />
+                                           <Label layoutX="415.0" layoutY="161.0" text=" 中文" />
+                                          <Button layoutX="545.0" layoutY="131.0" mnemonicParsing="false" onAction="#deleteButton" text="  删除  " />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="自测入口">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="180.0" layoutY="111.0" mnemonicParsing="false" onAction="#primary_ranking" text="  四级入口  " />
+                        <Button layoutX="502.0" layoutY="111.0" mnemonicParsing="false" onAction="#middle_ranking" text="  六级入口  " />
+                        <Label layoutX="62.0" layoutY="37.0" text="请选择你所要测试的等级：">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="数据备份">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="220.0" layoutY="111.0" mnemonicParsing="false" onAction="#backupButton" text="  备份  " />
+                        <Button layoutX="455.0" layoutY="111.0" mnemonicParsing="false" onAction="#recoverButton" text="  还原  " />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

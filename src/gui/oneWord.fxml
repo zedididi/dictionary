@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.oneWordControl">
+   <children>
+      <TextField fx:id="result" layoutX="400.0" layoutY="139.0" onAction="#getResult" prefHeight="30.0" prefWidth="262.0" />
+      <Label layoutX="349.0" layoutY="198.0" text="Warning:">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Text fx:id="wordL" layoutX="248.0" layoutY="87.0" text="Label">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Label layoutX="293.0" layoutY="269.0" text="单词输入完成后，请按Enter">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font></Label>
+      <Label layoutX="335.0" layoutY="321.0" text="进入下个单词考验">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font></Label>
+      <Label layoutX="201.0" layoutY="142.0" text="请输入单词：">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font></Label>
+      <Label layoutX="255.0" layoutY="14.0" text="根据意思拼写单词">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

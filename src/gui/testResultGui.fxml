@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.testResultControl">
+   <children>
+      <TableView fx:id="tableView" layoutX="4.0" layoutY="11.0" prefHeight="319.0" prefWidth="790.0">
+        <columns>
+          <TableColumn prefWidth="124.0" text="word">
+              <cellValueFactory>
+                  <PropertyValueFactory property="word" />
+              </cellValueFactory>
+          </TableColumn>
+          <TableColumn minWidth="0.0" prefWidth="535.0" text="meaning">
+              <cellValueFactory>
+                  <PropertyValueFactory property="meaning" />
+              </cellValueFactory>
+          </TableColumn>
+            <TableColumn prefWidth="124.0" text="result">
+                <cellValueFactory>
+                    <PropertyValueFactory property="rightOrWrong" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+      </TableView>
+      <Label fx:id="result" layoutX="150.0" layoutY="352.0" text="Label">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font></Label>
+   </children>
+</AnchorPane>
